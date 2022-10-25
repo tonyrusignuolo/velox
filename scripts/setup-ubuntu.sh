@@ -84,9 +84,24 @@ function install_protobuf {
   sudo ldconfig
 }
 
+function install_folly {
+  github_checkout facebook/folly v2022.07.11.00
+  cmake_install -DBUILD_TESTS=OFF
+}
+
+function install_libhdfs3 {
+  github_checkout apache/hawq master
+  cd depends/libhdfs3
+  sed -i "/FIND_PACKAGE(GoogleTest REQUIRED)/d" ./CMakeLists.txt
+  sed -i "s/dumpversion/dumpfullversion/" ./CMake/Platform.cmake
+  cmake_install
+}
+
 function install_velox_deps {
   run_and_time install_fmt
   run_and_time install_protobuf
+  run_and_time install_folly
+  run_and_time install_libhdfs3
 }
 
 (return 2> /dev/null) && return # If script was sourced, don't run commands.
