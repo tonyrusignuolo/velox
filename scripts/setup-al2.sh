@@ -94,7 +94,7 @@ function install_libhdfs3 {
   cd depends/libhdfs3
   sed -i "/FIND_PACKAGE(GoogleTest REQUIRED)/d" ./CMakeLists.txt
   sed -i "s/dumpversion/dumpfullversion/" ./CMake/Platform.cmake
-  cmake_install
+  cmake_install -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,/usr/local/lib64 -L/usr/local/lib64"
 }
 
 function install_velox_deps {
