@@ -22,30 +22,30 @@ NPROC=$(getconf _NPROCESSORS_ONLN)
 DEPENDENCY_DIR=${DEPENDENCY_DIR:-$(pwd)}
 
 # Install all velox and folly dependencies.
-sudo --preserve-env apt install -y \
-  g++ \
-  cmake \
-  ccache \
-  ninja-build \
-  checkinstall \
-  git \
-  libssl-dev \
-  libboost-all-dev \
-  libdouble-conversion-dev \
-  libgoogle-glog-dev \
-  libbz2-dev \
-  libgflags-dev \
-  libgmock-dev \
-  libevent-dev \
-  liblz4-dev \
-  libzstd-dev \
-  libre2-dev \
-  libsnappy-dev \
-  liblzo2-dev \
-  bison \
-  flex \
-  tzdata \
-  wget
+# sudo --preserve-env apt install -y \
+#   g++ \
+#   cmake \
+#   ccache \
+#   ninja-build \
+#   checkinstall \
+#   git \
+#   libssl-dev \
+#   libboost-all-dev \
+#   libdouble-conversion-dev \
+#   libgoogle-glog-dev \
+#   libbz2-dev \
+#   libgflags-dev \
+#   libgmock-dev \
+#   libevent-dev \
+#   liblz4-dev \
+#   libzstd-dev \
+#   libre2-dev \
+#   libsnappy-dev \
+#   liblzo2-dev \
+#   bison \
+#   flex \
+#   tzdata \
+#   wget
 
 function run_and_time {
   time "$@"
